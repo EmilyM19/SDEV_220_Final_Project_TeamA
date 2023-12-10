@@ -1,0 +1,74 @@
+{% extends 'base.html' %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Meta tags for character set and viewport settings -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Title tag with the option to override in child templates -->
+    <title>{% block title %}Successful Adoptions{% endblock %}</title>
+
+    <style>
+        /* Global styles can be added here if needed */
+    </style>
+</head>
+
+<body>
+    {% block content %}
+        <!-- Header section with a centered heading and top margin -->
+        <div style="text-align: center; margin-top: 20px;">
+            <h1>Our Successful Adoptions!</h1>
+        </div>
+
+        <!-- Count container for adopted cats -->
+        <div class="count-container">
+            <p>Cats Adopted:</p>
+            <p class="count">{{ adopted_cats_count }}</p>
+        </div>
+
+        <!-- List of adopted cats displayed in a flex container -->
+        <ul style="list-style: none; padding: 0; display: flex; flex-wrap: wrap; justify-content: center;">
+            {% for cat in adopted_cats %}
+                <!-- List item for each adopted cat with margin for spacing -->
+                <li style="margin: 0 20px 20px 0;">
+                    <!-- Image of the adopted cat with responsive styling -->
+                    <img src="{{ cat.photo.url }}" alt="{{ cat.cat_name }} photo" style="max-width: 100%; height: auto;">
+
+                    <!-- Details of the adopted cat with left-aligned text and top margin -->
+                    <div style="text-align: left; margin-top: 10px;">
+                        <h5 style="text-align: left; font-family: 'Quicksand', sans-serif;">Name: {{ cat.cat_name }}, {{ cat.cat_sex }}</h5>
+                        <h5 style="text-align: left; font-family: 'Quicksand', sans-serif;">Status: {{ cat.cat_status }}</h5>
+                    </div>
+                </li>
+            {% endfor %}
+        </ul>
+
+        <!-- Styling -->
+        <style>
+            .count-container {
+                display: flex;      /* Use flexbox for horizontal and vertical alignment */
+                justify-content: space-between; /* Spread items horizontally */
+                margin-bottom: 10px; /* Adjust margin for spacing */
+                align-items: center; /* Center items vertically */
+                padding: 10px;       /* Add padding for overall spacing */
+                font-size: 1.4em;    /* Adjust font size */
+                border: 2px solid #ccc;  /* Add border with 2px thickness and a light gray color */
+                border-radius: 8px;   /* Add border-radius for rounded corners */
+                width: max-content;   /* Ensure the container only takes as much width as necessary */
+                font-family: 'Quicksand' , sans-serif;
+                font-weight: bold;
+            }
+        
+            .count {
+                font-size: 1.25em;    /* Adjust font size */
+                font-weight: bold;   /* Make it bold for emphasis */
+                padding: 5px;        /* Adjust padding for top and bottom spacing */
+            }
+        </style>
+        
+    {% endblock %}
+</body>
+
+</html>

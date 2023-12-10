@@ -1,0 +1,71 @@
+{% extends 'base.html' %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Cats Needing Surgery{% endblock %}</title>
+
+
+    <style>
+        /* Add global styles here if needed */
+    </style>
+</head>
+
+<body>
+
+
+    {% block content %}
+        <br>
+        <h1 style="text-align: center;">Cats Needing Surgery</h1>
+
+        <!-- Count container for cats needing surgery -->
+        <div class="count-container">
+            <p>Cats in Need:</p>
+            <p class="count">{{ need_count }}</p>
+        </div>
+        
+        <!-- List of cats needing surgery -->
+        <ul>
+            {% for cat in cats %}
+                <li style="margin-right: 50px; margin-bottom: 50px;">
+                    <img src="{{ cat.photo.url }}" alt="{{ cat.cat_name }} photo">
+
+                    <!-- Cat details with Quicksand font family -->
+                    <div style="text-align: left; font-family: 'Quicksand', sans-serif;">
+                        <h5 style="text-align: left; font-family: 'Quicksand', sans-serif;">Name: {{ cat.cat_name }}, {{ cat.cat_sex }}</h5>
+                        <h5 style="text-align: left; font-family: 'Quicksand', sans-serif;">Status: {{ cat.cat_surgery_status }}</h5>
+                    </div>
+                </li>
+            {% endfor %}
+        </ul>
+
+        <!-- Styling -->
+        <style>
+            .count-container {
+                display: flex;      /* Use flexbox for horizontal and vertical alignment */
+                justify-content: space-between; /* Spread items horizontally */
+                margin-bottom: 10px; /* Adjust margin for spacing */
+                align-items: center; /* Center items vertically */
+                padding: 10px;       /* Add padding for overall spacing */
+                font-size: 1.4em;    /* Adjust font size */
+                border: 2px solid #ccc;  /* Add border with 2px thickness and a light gray color */
+                border-radius: 8px;   /* Add border-radius for rounded corners */
+                width: max-content;   /* Ensure the container only takes as much width as necessary */
+                font-family: 'Quicksand' , sans-serif;
+                font-weight: bold;
+            }
+        
+            .count {
+                font-size: 1.25em;    /* Adjust font size */
+                font-weight: bold;   /* Make it bold for emphasis */
+                padding: 5px;        /* Adjust padding for top and bottom spacing */
+            }
+        </style>
+
+
+    {% endblock %}
+</body>
+
+</html>

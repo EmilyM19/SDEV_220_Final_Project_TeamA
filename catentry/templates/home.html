@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JCCC - Available Cats</title>
+
+    <!-- Add any additional head tags or links here -->
+</head>
+
+<body>
+    {% extends 'base.html' %}
+
+    {% block content %}
+        <br>
+        <h1 style="text-align: center;">Our Avaliable Cats</h1>
+
+        <!-- Container for cat count -->
+        <div class="count-container">
+            <p>Cats Available <br>for Adoption:</p>
+            <p class="count">{{ available_cats_count }}</p>
+        </div>
+
+        <!-- List of cats -->
+        <ul>
+            {% for cat in cats %}
+                <li style="margin-right: 50px; margin-bottom: 50px;">
+                    <img src="{{ cat.photo.url }}" alt="{{ cat.cat_name }} photo">
+                    <h5 style="text-align: left; font-family: 'Quicksand', sans-serif;">Name: <span class="cat-name">{{ cat.cat_name }}</span>, {{ cat.cat_sex }} </h5>
+                    <h5 style="text-align: left; font-family: 'Quicksand', sans-serif;">Status: <span class="cat-status">{{ cat.cat_status }}</span></h5>
+                </li>
+            {% endfor %}
+        </ul>
+
+        <!-- Styling -->
+        <style>
+            .count-container {
+                display: flex;      /* Use flexbox for horizontal and vertical alignment */
+                justify-content: space-between; /* Spread items horizontally */
+                margin-bottom: 10px; /* Adjust margin for spacing */
+                align-items: center; /* Center items vertically */
+                padding: 10px;       /* Add padding for overall spacing */
+                font-size: 1.2em;    /* Adjust font size */
+                border: 2px solid #ccc;  /* Add border with 2px thickness and a light gray color */
+                border-radius: 8px;   /* Add border-radius for rounded corners */
+                width: max-content;   /* Ensure the container only takes as much width as necessary */
+                font-family: 'Quicksand' , sans-serif;
+                font-weight: bold;
+            }
+        
+            .count {
+                font-size: 1.5em;    /* Adjust font size */
+                font-weight: bold;   /* Make it bold for emphasis */
+                padding: 5px;        /* Adjust padding for top and bottom spacing */
+            }
+
+            .cat-name,
+            .cat-status {
+                font-family: 'Quicksand', sans-serif;
+            }
+        </style>
+    {% endblock %}
+</body>
+
+</html>

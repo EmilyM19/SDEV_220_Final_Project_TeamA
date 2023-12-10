@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% block title %}Create Cat{% endblock %}
+
+{% block content %}
+    <style>
+        /* Additional styles for create_cat.html */
+        form {
+            font-family: 'Quicksand', sans-serif;
+            /* Change 'YourNewFont' to the desired font name */
+            /* Add any additional styling for the form */
+        }
+    </style>
+
+    <br>
+    <h1>Enter a New Cat</h1>
+    {% if success_message %}
+        <p>{{ success_message }}</p>
+    {% endif %}
+
+    <form method="post" enctype="multipart/form-data" id="catForm">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" id="submitBtn" disabled>Submit</button>
+    </form>
+
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            // Disable the submit button by default
+            $('#submitBtn').attr('disabled', true);
+
+            // Enable the submit button when an image is selected
+            $('input[type="file"]').change(function() {
+                if ($(this).val()) {
+                    $('#submitBtn').attr('disabled', false);
+                } else {
+                    $('#submitBtn').attr('disabled', true);
+                }
+            });
+        });
+    </script>
+{% endblock %}

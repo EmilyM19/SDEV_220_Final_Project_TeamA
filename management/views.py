@@ -55,7 +55,6 @@ def success(request):
     # Pass the cats to the template
     context = {'cats': cats_successful, 'success_count':success_count}
     
-    # Render the 'need.html' template with the provided context
     return render(request, 'success.html', context)
 
 
@@ -75,7 +74,7 @@ def entercat(request):
             
             cat_id = cat.id 
 
-            return redirect('cat_details_url', cat_id)  # Redirect to the home page after successful form submission
+            return redirect('cat_details_url', cat_id)
     else:
         form = CatForm()
 
@@ -143,7 +142,6 @@ def all_cats(request):
     # Fetch all cats
     cats = Cat.objects.all()
     
-    # Pass the cats to the template
     return render(request, 'all_cats.html', {'cats': cats})
 
 @login_required

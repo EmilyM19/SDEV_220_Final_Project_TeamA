@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+
+{% block title %}Cat Details{% endblock %}
+
+{% block content %}
+
+        <div class="cat-detail-container">
+            <img src="{{ cat.image.url }}" alt="{{ cat.name }}">
+
+            <h2>{{ cat.name }}, {{ cat.gender }}</h2>
+                <ul>
+                    <li><strong>ID: {{ cat.id }}</strong></li><br>
+                    {% if cat.age < 1 %}
+                    <li><strong>Age:</strong> Less than 1 year</li><br>
+                    {% elif cat.age == 1 %}
+                        <li><strong>Age:</strong> {{ cat.age }} year</li><br>
+                    {% else %}
+                        <li><strong>Age:</strong> {{ cat.age }} years</li><br>
+                    {% endif %}
+                    <li><strong>Gender:</strong> {{ cat.gender }}</li><br>
+                    <li><strong>Color:</strong> {{ cat.color }}</li><br>
+                    <li><strong>Adoption Status:</strong> {{ cat.adoption_status }}</li><br>
+                    <li><strong>Spay/Neuter:</strong> {{ cat.spayed_neutered }}</li><br>
+                    <li><strong>Intake Date:</strong> {{ cat.intake_date }}</li><br>
+                    <li><strong>Description:</strong> {{ cat.description }}</li><br>
+
+                    <!-- Add other fields here -->
+                </ul>
+
+                {% if user.is_authenticated %}
+                <div class="button-container">
+                                <!-- Button to link to cat_edit page -->
+                    <a href="{% url 'cat_edit_url' cat_id=cat.id %}?cat_id={{ cat.id }}">
+                        <button>Edit Cat</button>
+                    </a>
+                    <a href="{% url 'edit_vaccines_url' cat_id=cat.id %}">
+                        <button>Edit Vaccines</button>
+                    </a>
+                    <a href="{% url 'edit_adopter_url' cat_id=cat.id %}">
+                        <button>Edit Adopter</button>
+                    </a>
+                    <a href="{% url 'edit_surgery_url' cat_id=cat.id %}">
+                        <button>Edit Surgery</button>
+                    </a>
+                </div>
+                {% endif %}
+        </div>
+
+{% endblock %}
+

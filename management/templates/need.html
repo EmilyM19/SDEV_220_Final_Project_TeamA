@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% block title %}Cats in Need of Surgeries{% endblock %}
+
+{% block content %}
+<section>
+    <div class="need-container">
+        <h2 class="need-header">{{ need_count }} Cats in Need of Surgeries</h2>
+        <div class="need-items">
+            {% for cat in cats %}
+                {% if not cat.spayed_neutered %}
+                    <div class="need-detail-container">
+                        <img src="{{ cat.image.url }}" alt="{{ cat.name }}">
+                        <h3><strong>{{ cat.name }}, {{cat.gender}}</strong></h3>
+                        <ul>
+                            <li><strong>ID:</strong> {{ cat.id }}</li><br>
+                            {% if cat.age < 1 %}
+                                <li><strong>Age:</strong> Less than 1 year</li><br>
+                            {% elif cat.age == 1 %}
+                                <li><strong>Age:</strong> {{ cat.age }} year</li><br>
+                            {% else %}
+                                <li><strong>Age:</strong> {{ cat.age }} years</li><br>
+                            {% endif %}
+                            <li><strong>Color:</strong> {{ cat.color }}</li><br>
+                            <li><strong>Adoption Status:</strong> {{ cat.adoption_status }}</li><br>
+                            <!-- Add other fields here -->
+                        </ul>
+                        <div class="button-container">
+                            <a href="{% url 'cat_details_url' cat_id=cat.id %}">
+                                <button>View Details</button>
+                            </a>
+                            <!-- Add other buttons as needed -->
+                        </div>
+                    </div>
+                {% endif %}
+            {% endfor %}
+        </div>
+    </div>
+</section>
+{% endblock %}

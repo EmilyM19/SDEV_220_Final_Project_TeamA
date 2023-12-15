@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block title %}Edit Adopter{% endblock %}
+
+{% block content %}
+<section>
+    <div class="adopter-edit-container">
+        <h2 class="edit-adopter-header">Edit Adopter</h2>
+                <p>Edit Adoption Record for {{ cat.name }}, <strong>ID #{{ cat.id}}:</strong></p>
+                <form method="post" enctype="multipart/form-data" id="adopterForm">
+                    {% csrf_token %}
+                    {{ form.as_p }}
+                    <button type="submit", id="submitBtn">Save</button>
+                </form>
+
+            <br>
+            <a href="{% url 'cat_details_url' cat_id=cat.id %}">Back to Cat Details</a>
+
+    
+    </div>
+{% endblock %}

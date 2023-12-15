@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block title %}Edit Cat{% endblock %}
+
+{% block content %}
+<section>
+    <div class="cat-edit-container">
+        <h2 class="edit-header">Edit Cat</h2>
+        <form method="post" enctype="multipart/form-data" id="editForm">
+            {% csrf_token %}
+            {{ form.as_p }}
+            
+            {% if form.instance.image %}
+                <p>Current Image: <br> <img src="{{ form.instance.image.url }}" alt="Current Image"></p>
+            {% endif %}
+            
+            <button type="submit" id="submitBtn">Save Changes</button>
+        </form>
+    </div>
+</section>
+{% endblock %}

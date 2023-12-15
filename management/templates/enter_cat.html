@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block title %}Enter a Cat{% endblock %}
+
+{% block content %}
+<section>
+    <div class="enter-background">
+        <div class="enter-container">
+            <h2>
+                Enter a Cat
+            </h2>  
+                <form method="post" enctype="multipart/form-data", id="catForm">
+                    {% csrf_token %}
+                    {{ form.as_p }}
+                    <button type="submit", id="submitBtn">Submit</button>
+                </form>
+        </div> 
+    </div>
+</section>
+
+{% endblock %}

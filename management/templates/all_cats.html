@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{% block title %}Available Cats{% endblock %}
+
+{% block content %}
+<section>
+    <div class="available-container">
+        <h2 class="available-header">All Cats</h2>
+        <div class="available-items">
+            {% for cat in cats %}
+                <div class="available-detail-container">
+                    <img src="{{ cat.image.url }}" alt="{{ cat.name }}">
+                    <h3><strong>{{ cat.name }}, {{cat.gender}}</strong></h3>
+                    <ul>
+                        <li><strong>ID:</strong> {{ cat.id }}</li><br>
+                        {% if cat.age < 1 %}
+                            <li><strong>Age:</strong> Less than 1 year</li><br>
+                            {% elif cat.age == 1 %}
+                                <li><strong>Age:</strong> {{ cat.age }} year</li><br>
+                            {% else %}
+                                <li><strong>Age:</strong> {{ cat.age }} years</li><br>
+                        {% endif %}
+                        <li><strong>Color:</strong> {{ cat.color }}</li><br>
+                        <li><strong>Adoption Status:</strong> {{ cat.adoption_status }}</li><br>
+                        
+                        
+                        <li><strong>Spay/Neuter Status: {{cat.spayed_neutered}}</strong></li>
+                        <!-- Add other fields here -->
+                    </ul>
+                    <div class="button-container">
+                        <a href="{% url 'cat_details_url' cat_id=cat.id %}">
+                            <button>View Details and Edit</button>
+                        </a>
+                        <!-- Add other buttons as needed -->
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+{% endblock %}

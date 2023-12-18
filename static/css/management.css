@@ -586,3 +586,30 @@
     text-align:center;
     }
     
+    @media max-wi{
+    .available-detail-container {
+    width:48%;
+    }
+    
+    .need-detail-container,.success-detail-container {
+    width:48%;
+    }
+    
+    .success-detail-container {
+    width:48%;
+    }
+    }
+    
+    @media max-width 576px{
+    .available-detail-container {
+    width:100%;
+    }
+    
+    .need-detail-container,.success-detail-container {
+    width:100%;
+    }
+    
+    .success-detail-container {
+    width:100%;
+    }
+    }

@@ -1,205 +1,589 @@
-/* styles.css */
-
-/* Common styles for all pages */
-body {
-    background-color: #f8f9fa; /* Match the background color of the base.html */
-    font-family: 'Quicksand', serif; /* Match the font-family of the base.html */
-    font-weight: 500;
-}
-
-header {
-    background-color: #097aa8; /* Match the header background color of the base.html */
-    color: #000000; /* Match the header text color of the base.html */
-    text-align: right;
-    padding: 10px;
-    font-family: 'Bebas Neue', sans-serif;
-}
-
-h2 {font-family: 'Bebas Neue', sans-serif;
-    color: #000000;
-
-}
-
-/* Specific styles for the Cat List page */
-ul {
-    list-style: none;
-    padding: 0;
-    text-align: center;
-}
-
-li {
-    margin-bottom: 10px;
-    display: inline-block;
-}
-
-img {
-    max-width: 100%; /* Ensure images don't exceed their container width */
-}
-
-a {
-    color: #ffffff; /* Set the default link color */
-    font-family: 'Bebas Neue', sans-serif;
-    letter-spacing: .25cap;
+#adopterForm #id_adoption_complete {
+    -moz-appearance:none;
+    -webkit-appearance:none;
+    appearance:none;
+    background-color:#ffffff;
+    border:2px solid #000000;
+    border-radius:4px;
+    height:20px;
+    outline:none;
+    transition:background-color .3s border-color .3s;
+    width:20px;
+    }
     
-}
+    #adopterForm #id_adoption_complete:checked {
+    background-color:#007bff;
+    border-color:#000000;
+    }
+    
+    #adopterForm #id_is_home_approved {
+    -moz-appearance:none;
+    -webkit-appearance:none;
+    appearance:none;
+    background-color:#ffffff;
+    border:2px solid #000000;
+    border-radius:4px;
+    height:20px;
+    outline:none;
+    transition:background-color .3s border-color .3s;
+    width:20px;
+    }
+    
+    #adopterForm #id_is_home_approved:checked {
+    background-color:#007bff;
+    border-color:#000000;
+    }
+    
+    #adopterForm input,#adopterForm select {
+    box-sizing:border-box;
+    margin-bottom:10px;
+    width:calc(100%-160px);
+    }
+    
+    #adopterForm label[for="is_home_approved"] {
+    clear:left;
+    display:block;
+    float:left;
+    margin-right:10px;
+    text-align:right;
+    width:150px;
+    }
+    
+    #adopterForm label[for] {
+    color:#ffffff!important;
+    }
+    
+    #catForm #id_description {
+    box-sizing:border-box;
+    margin-bottom:10px;
+    width:calc(100%-100px);
+    }
+    
+    #catForm #id_spayed_neutered {
+    -moz-appearance:none;
+    -webkit-appearance:none;
+    appearance:none;
+    background-color:#ffffff;
+    border:2px solid #000000;
+    border-radius:4px;
+    height:20px;
+    outline:none;
+    transition:background-color .3s border-color .3s;
+    width:20px;
+    }
+    
+    #catForm #id_spayed_neutered:checked {
+    background-color:#007bff;
+    border-color:#000000;
+    }
+    
+    #catForm input,#catForm select {
+    box-sizing:border-box;
+    margin-bottom:10px;
+    width:calc(100%-160px);
+    }
+    
+    #catForm label,#adopterForm label {
+    color:#ffffff;
+    display:block;
+    float:left;
+    margin-right:10px;
+    text-align:right;
+    width:150px;
+    }
+    
+    #catForm label[for="id_description"] {
+    clear:left;
+    display:block;
+    float:left;
+    margin-right:10px;
+    text-align:right;
+    width:150px;
+    }
+    
+    #catForm label[for="id_spayed_neutered"] {
+    clear:left;
+    display:block;
+    float:left;
+    margin-right:10px;
+    text-align:right;
+    width:150px;
+    }
+    
+    #catForm,#adopterForm,#vaccineForm {
+    margin:0 auto;
+    max-width:400px;
+    width:100%;
+    }
+    
+    #editForm {
+    color:#ffffff;
+    margin:0 auto;
+    max-width:400px;
+    width:100%;
+    }
+    
+    #editForm #id_description {
+    box-sizing:border-box;
+    margin-bottom:10px;
 
-/* Styling for visited links */
-a:visited {
-    color: #ffffff; /* Set the color for visited links */
-}
+    max-width: 175px;
+    }
+    
+    #editForm #id_spayed_neutered {
+    -moz-appearance:none;
+    -webkit-appearance:none;
+    appearance:none;
+    background-color:#ffffff;
+    border:2px solid #000000;
+    border-radius:4px;
+    height:20px;
+    outline:none;
+    transition:background-color .3s border-color .3s;
+    width:20px;
+    }
+    
+    #editForm #id_spayed_neutered:checked {
+    background-color:#007bff;
+    border-color:#000000;
+    }
+    
+    #editForm input,#editForm select {
+    box-sizing:border-box;
+    margin-bottom:10px;
+    width:calc(100%-160px);
+    }
+    
+    #editForm label {
+    clear:left;
+    display:block;
+    float:left;
+    margin-right:10px;
+    text-align:right;
+    width:150px;
+    }
 
-.navbar-nav {
-    display: flex;
-    align-items: center;
-}
-
-/* Add some padding to the nav-items for better spacing */
-.navbar-nav .nav-item {
-    margin-bottom: 0; /* Remove default margin */
-    padding: 10px; /* Adjust padding as needed */
-}
-
-/* Center the text horizontally within each navbar li */
-.navbar-nav .nav-link {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-
-.home-background {
-    background-image: url('../management/background.jpg');
-    background-size: cover;
-    background-position: center;
-    height: 95vh; /* Set the height to 50% of the viewport height */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    color: #ffffff; /* Set the text color for better visibility */
-    font-family: 'Bebas Neue', sans-serif;
-}
-
-.about-container {
-    background-color: rgba(0, 0, 0, 0.5);
-    padding: 20px;
-    border-radius: 10px;
-    margin-top: -40vh; /* Adjust the margin-top value as needed */
-    max-width: 30vw;
-}
-
-.about-container h2 {
-    color: #ffffff;
-}
-
-p {
-    font-family: 'Quicksand', serif;
-}
-
-
-.enter-background {
-    background-image: url('../management/background.jpg');
-    background-size: cover;
-    background-position: center;
-    height: 95vh; /* Set the height to 50% of the viewport height */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: left;
-    color: #ffffff; /* Set the text color for better visibility */
-    font-family: 'Bebas Neue', sans-serif;
-}
-
-.enter-container {
-    background-color: rgba(0, 0, 0, 0.5);
-    padding: 20px;
-    border-radius: 10px;
-    display: flex;
-    flex-direction: column; /* Stack child elements vertically */
-    align-items: center;
-    margin-top: 0;
-    max-width: 50vw;
-}
-
-.enter-container h2 {
-    color: #ffffff; /* Set the text color to white */
-}
-
-#catForm {
-    width: 100%;
-    max-width: 400px;
-    margin: 0 auto;
-}
-
-#catForm label {
-    display: block;
-    float: left;
-    clear: left;
-    width: 150px; /* Set a consistent width for the labels */
-    text-align: right; /* Align the text to the right for better readability */
-    margin-right: 10px; /* Add some margin to separate the labels from input boxes */
-}
-
-#catForm input, #catForm select {
-    width: calc(100% - 160px); /* Make the input boxes and selects take the remaining width */
-    box-sizing: border-box; /* Include padding and border in the element's total width and height */
-    margin-bottom: 10px; /* Add some margin to separate each input box */
-}
-
-#catForm label[for="id_description"] {
-    /* Additional specific selector for the "description" label */
-    display: block;
-    float: left;
-    clear: left;
-    width: 150px;
-    text-align: right;
-    margin-right: 10px;
-}
-
-#catForm #id_description {
-    /* Additional specific selector for the "description" input box */
-    width: calc(100% - 160px);
-    box-sizing: border-box;
-    margin-bottom: 10px;
-}
-
-#catForm label[for="id_spayed_neutered"] {
-    /* Additional specific selector for the "spayed_neutered" label */
-    display: block;
-    float: left;
-    clear: left;
-    width: 150px;
-    text-align: right;
-    margin-right: 10px;
-}
-
-#catForm #id_spayed_neutered {
-    /* Additional specific selector for the "spayed_neutered" checkbox */
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
-    width: 20px;
-    height: 20px;
-    border: 2px solid #007bff; /* Border color when unchecked */
-    border-radius: 4px;
-    outline: none;
-    transition: background-color 0.3s, border-color 0.3s;
-}
-
-#catForm #id_spayed_neutered:checked {
-    /* Styles when the checkbox is checked */
-    background-color: #007bff;
-    border-color: #007bff;
-}
-
-#submitBtn {
-    display: block;
-    margin: 0 auto;
-    background-color: #007bff;
-    color: #ffffff;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
+    
+    
+    #editForm label[for="id_description"] {
+    clear:left;
+    display:block;
+    float:left;
+    margin-right:10px;
+    text-align:right;
+    width:150px;
+    }
+    
+    #editForm label[for="id_spayed_neutered"] {
+    clear:left;
+    display:block;
+    float:left;
+    margin-right:10px;
+    text-align:right;
+    width:150px;
+    }
+    
+    #submitBtn {
+    background-color:#3192be;
+    border:none;
+    border-radius:5px;
+    color:#ffffff;
+    cursor:pointer;
+    display:block;
+    margin:0 auto;
+    padding:10px 20px;
+    }
+    
+    .about-container {
+    background-color:rgba(0,0,0,0.5);
+    border-radius:10px;
+    margin-top:-40vh;
+    max-width:30vw;
+    padding:20px;
+    }
+    
+    .about-container h2 {
+    color:#ffffff;
+    text-decoration-color:#ffffff;
+    text-decoration-line:underline;
+    text-decoration-style:solid;
+    }
+    
+    .adopter-edit-container p {
+    color:#ffffff;
+    }
+    
+    .available-container {
+    align-items:center;
+    background-color:rgba(0,0,0,.3);
+    border-radius:10px;
+    color:#ffffff;
+    display:flex;
+    flex-direction:column;
+    height:fit-content;
+    margin:20px auto;
+    padding:20px;
+    width:80vw;
+    }
+    
+    .available-detail-container {
+    align-items:center;
+    background-color:rgba(0,0,0,0.8);
+    border-radius:10px;
+    box-sizing:border-box;
+    display:flex;
+    flex-direction:column;
+    margin:20px auto;
+    max-width:600px;
+    padding:20px;
+    width:30%;
+    }
+    
+    .available-header,.need-header,.success-header,.edit-header,.edit-vaccine-header,.edit-adopter-header {
+    color:#ffffff;
+    font-family:'Bebas Neue', sans-serif;
+    text-decoration-color:#ffffff;
+    text-decoration-line:underline;
+    }
+    
+    .available-items {
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:space-between;
+    }
+    
+    .cat-detail-container {
+    align-items:center;
+    background-color:rgba(0,0,0,0.5);
+    border-radius:10px;
+    display:flex;
+    flex-direction:column;
+    margin:20px auto;
+    max-width:600px;
+    padding:20px;
+    width:60vw;
+    }
+    
+    .cat-detail-container .button-container {
+    display:inline;
+    }
+    
+    .cat-detail-container button {
+    border:none;
+    border-radius:5px;
+    cursor:pointer;
+    display:inline;
+    margin:0 auto;
+    padding:10px 20px;
+    text-decoration:underline color(srgbrgb(0,0,0) green blue);
+    }
+    
+    .cat-detail-container button:hover {
+    text-decoration:underline;
+    }
+    
+    .cat-detail-container h2 {
+    color:#ffffff;
+    }
+    
+    .cat-detail-container li {
+    margin-bottom:5px;
+    }
+    
+    .cat-detail-container p {
+    font-family:Quicksand, serif;
+    text-align:left;
+    }
+    
+    .cat-detail-container ul {
+    color:#ffffff;
+    list-style-type:none;
+    padding:2px;
+    }
+    
+    .cat-edit-container .button-container {
+    display:inline;
+    }
+    
+    .cat-edit-container button {
+    border:none;
+    border-radius:5px;
+    cursor:pointer;
+    display:inline;
+    margin:0 auto;
+    padding:10px 20px;
+    text-decoration:underline color(srgbrgb(0,0,0) green blue);
+    }
+    
+    .cat-edit-container button:hover {
+    text-decoration:underline;
+    }
+    
+    .cat-edit-container li {
+    margin-bottom:5px;
+    }
+    
+    .cat-edit-container p {
+    font-family:Quicksand, serif;
+    text-align:left;
+    }
+    
+    .cat-edit-container ul {
+    color:#ffffff;
+    list-style-type:none;
+    padding:2px;
+    }
+    
+    .cat-edit-container,.vaccine-edit-container,.adopter-edit-container {
+    align-items:center;
+    background-color:rgba(0,0,0,0.5);
+    border-radius:10px;
+    display:flex;
+    flex-direction:column;
+    margin:20px auto;
+    max-width:600px;
+    padding:20px;
+    width:30vw;
+    }
+    
+    .current-image-container {
+    align-items:center;
+    display:flex;
+    height:300px;
+    justify-content:center;
+    }
+    
+    .current-image-container img {
+    max-height:100%;
+    max-width:100%;
+    object-fit:contain;
+    }
+    
+    .detail-background {
+    align-items:center;
+    background-color:rgba(0,0,0,0.5);
+    border-radius:10px;
+    display:flex;
+    flex-direction:column;
+    margin-top:0;
+    max-width:50vw;
+    padding:20px;
+    }
+    
+    .dropdown-menu a {
+    color:#000000 !important;
+    }
+    
+    .edit-background {
+    align-items:center;
+    background-color:rgba(0,0,0,0.5);
+    border-radius:10px;
+    display:flex;
+    flex-direction:column;
+    margin-top:0;
+    max-width:50vw;
+    padding:20px;
+    }
+    
+    .enter-background {
+    align-items:center;
+    color:#ffffff;
+    display:flex;
+    font-family:'Bebas Neue', sans-serif;
+    height:95vh;
+    justify-content:center;
+    text-align:left;
+    }
+    
+    .enter-container {
+    align-items:center;
+    background-color:rgba(0,0,0,0.5);
+    border-radius:10px;
+    display:flex;
+    flex-direction:column;
+    margin-top:0;
+    max-width:50vw;
+    padding:20px;
+    margin-top: 10vh;
+    }
+    
+    .enter-container h2 {
+    color:#ffffff;
+    text-decoration-color:#ffffff;
+    text-decoration-line:underline;
+    text-decoration-style:solid;
+    }
+    
+    .home-background {
+    align-items:center;
+    background-image:url(../management/background.jpg);
+    background-position:center;
+    background-size:cover;
+    color:#ffffff;
+    display:flex;
+    font-family:'Bebas Neue', sans-serif;
+    height:95vh;
+    justify-content:center;
+    text-align:center;
+    }
+    
+    .login-container {
+    align-items:center;
+    background-color:rgba(0,0,0,.3);
+    border-radius:10px;
+    color:#ffffff;
+    display:flex;
+    flex-direction:column;
+    height:fit-content;
+    margin:20px auto;
+    padding:20px;
+    width:60vw;
+    }
+    
+    .login-header {
+    color:#ffffff;
+    }
+    
+    .navbar-nav {
+    align-items:center;
+    display:flex;
+    }
+    
+    .navbar-nav .nav-item {
+    margin-bottom:0;
+    padding:10px;
+    }
+    
+    .navbar-nav .nav-link {
+    align-items:center;
+    display:flex;
+    justify-content:center;
+    }
+    
+    .need-container,.success-container {
+    align-items:center;
+    background-color:rgba(0,0,0,.3);
+    border-radius:10px;
+    color:#ffffff;
+    display:flex;
+    flex-direction:column;
+    height:fit-content;
+    margin:20px auto;
+    padding:20px;
+    width:80vw;
+    }
+    
+    .need-detail-container,.success-detail-container {
+    align-items:center;
+    background-color:rgba(0,0,0,0.8);
+    border-radius:10px;
+    box-sizing:border-box;
+    display:flex;
+    flex-direction:column;
+    margin:10px auto;
+    max-width:600px;
+    padding:20px;
+    width:30%;
+    }
+    
+    .need-header,.success-header {
+    color:#ffffff;
+    font-family:'Bebas Neue', sans-serif;
+    }
+    
+    .need-items,.success-items {
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:space-between;
+    }
+    
+    .success-container {
+    align-items:center;
+    background-color:rgba(0,0,0,.3);
+    border-radius:10px;
+    color:#ffffff;
+    display:flex;
+    flex-direction:column;
+    height:fit-content;
+    margin:20px auto;
+    padding:20px;
+    width:80vw;
+    }
+    
+    .success-detail-container {
+    align-items:center;
+    background-color:rgba(0,0,0,0.8);
+    border-radius:10px;
+    box-sizing:border-box;
+    display:flex;
+    flex-direction:column;
+    margin:10px 10px 10px auto !important;
+    max-width:600px;
+    padding:20px;
+    width:40%;
+    }
+    
+    .success-header {
+    color:#ffffff;
+    font-family:'Bebas Neue', sans-serif;
+    }
+    
+    .success-items {
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:space-between;
+    }
+    
+    .user-info {
+    margin-right:20px;
+    }
+    
+    a {
+    color:#ffffff;
+    font-family:'Bebas Neue', sans-serif;
+    letter-spacing:.25cap;
+    }
+    
+    a:visited {
+    color:#ffffff;
+    }
+    
+    body {
+    background-color:#f8f9fa;
+    font-family:Quicksand, serif;
+    font-weight:500;
+    }
+    
+    h2 {
+    color:#000000;
+    font-family:'Bebas Neue', sans-serif;
+    }
+    
+    header {
+    background-color:#097aa8;
+    color:#000000;
+    font-family:'Bebas Neue', sans-serif;
+    padding:10px;
+    text-align:right;
+    }
+    
+    img {
+    max-width:100%;
+    }
+    
+    li {
+    display:inline-block;
+    font-family:Quicksand, serif;
+    margin-bottom:10px;
+    }
+    
+    p {
+    font-family:Quicksand, serif;
+    }
+    
+    ul {
+    list-style:none;
+    padding:0;
+    text-align:center;
+    }
+    
